@@ -1,5 +1,7 @@
 package zhangqs.array;
 
+import java.util.Arrays;
+
 /**
  *  实现一个 数组
  *  新增 删除 查找
@@ -32,6 +34,31 @@ public class array {
         } else {
             throw new IllegalArgumentException("Illegal size: "+ size);
         }
+    }
+
+    // add 新增 按照顺序新增
+    public boolean add(Object o){
+        objects[size]= o;
+        size++;
+        return true;
+    }
+
+    // add 新增 在对应的位置新增元素
+    public boolean add(int index ,Object o){
+        //判断 index 数据是否正常
+        rangeCheckForAdd(index);
+        //
+        return true;
+
+    }
+
+    private void rangeCheckForAdd(int index) {
+        if (index > size || index < 0)
+            throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
+    }
+
+    private String outOfBoundsMsg(int index) {
+        return "Index: "+index+", Size: "+size;
     }
 
 }
