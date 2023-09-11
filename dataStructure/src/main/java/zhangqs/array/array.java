@@ -47,9 +47,20 @@ public class array {
     public boolean add(int index ,Object o){
         //判断 index 数据是否正常
         rangeCheckForAdd(index);
-        //
+        Object[] elementData =new Object[size+1];
+        // 1.复制一个新的数组对像
+        for (int i =0;i<size;i++){
+          elementData[i] = objects[i];
+        }
+        // 2.当前下标的值往后移一位
+        for (int i = elementData.length-1;i >index;i--){
+            elementData[i]=elementData[i-1];
+        }
+        for (int i = index;i <elementData.length-1;i++){
+            elementData[i+1]=elementData[i];
+        }
+        elementData[index]=o;
         return true;
-
     }
 
     private void rangeCheckForAdd(int index) {
@@ -60,5 +71,7 @@ public class array {
     private String outOfBoundsMsg(int index) {
         return "Index: "+index+", Size: "+size;
     }
+
+
 
 }
