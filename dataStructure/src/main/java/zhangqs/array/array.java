@@ -56,12 +56,42 @@ public class array {
         for (int i = elementData.length-1;i >index;i--){
             elementData[i]=elementData[i-1];
         }
-        for (int i = index;i <elementData.length-1;i++){
-            elementData[i+1]=elementData[i];
-        }
         elementData[index]=o;
         return true;
     }
+
+    public Object get(int index){
+       // 校验index 边界值
+        if (index< 0  || index > size -1){
+            return  -1;
+        }
+        return objects[index];
+    }
+
+    // 根据下标删除元素
+    public boolean delete (int index){
+        //判断 index 数据是否正常
+        rangeCheckForAdd(index);
+        //写法1  直接 在原数组上修改 返回true
+        for (int i = index+1;i<size;i++){
+            objects[i-1] =objects[i];
+        }
+        size--;
+
+       ////写法二  直接创建返回一个新的数组
+       // Object[] elements = new Object[size-1];
+       // int dex = 0;
+       // for (int i =0;i<size;i++){
+       //     if (index == i){
+       //         continue;
+       //     }else {
+       //         elements[dex++]=objects[i];
+       //     }
+       // }
+       // return elements;
+        return true;
+    }
+
 
     private void rangeCheckForAdd(int index) {
         if (index > size || index < 0)
@@ -71,7 +101,6 @@ public class array {
     private String outOfBoundsMsg(int index) {
         return "Index: "+index+", Size: "+size;
     }
-
 
 
 }
