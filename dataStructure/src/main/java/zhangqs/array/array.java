@@ -8,9 +8,10 @@ import java.util.Arrays;
  */
 public class array {
 
-    // 成员变量 不需要final 修饰 不需要在定义的时候初始化
-    // 通过构造函数 对 数组 以及 大小进行初始化
-    // 需要 默认值的时候 需要 在类初始化的时候 通过final 和 static 进行初始化
+    // 成员变量 不需要final 修饰 不需要在定义的时候初始化。
+    // 通过构造函数 对 数组 以及 大小进行初始化。
+    // 需要 默认值的时候 需要 在类初始化的时候 通过final 和 static 进行初始化。
+    // 如果一个变量既不在初始化的时候定义，也不在变量创建的时候初始化，那么该变量的创建毫无意义。
 
     // 定一个空数组
     public Object[] objects;
@@ -36,10 +37,13 @@ public class array {
         }
     }
 
+    public int size(){
+        return size;
+    }
+
     // add 新增 按照顺序新增
     public boolean add(Object o){
-        objects[size]= o;
-        size++;
+        objects[size++]= o;
         return true;
     }
 
@@ -56,7 +60,9 @@ public class array {
         for (int i = elementData.length-1;i >index;i--){
             elementData[i]=elementData[i-1];
         }
+        objects =elementData;
         elementData[index]=o;
+        size++;
         return true;
     }
 
@@ -72,23 +78,24 @@ public class array {
     public boolean delete (int index){
         //判断 index 数据是否正常
         rangeCheckForAdd(index);
-        //写法1  直接 在原数组上修改 返回true
-        for (int i = index+1;i<size;i++){
-            objects[i-1] =objects[i];
+        ////写法1  直接 在原数组上修改 返回true
+        //for (int i = index+1;i < size;++i){
+        //    objects[i-1] =objects[i];
+        //}
+        //size--;
+
+        ////写法二  直接创建返回一个新的数组
+        Object[] elements = new Object[size-1];
+        int dex = 0;
+        for (int i =0;i<size;i++){
+            if (index == i){
+                continue;
+            }else {
+                elements[dex++]=objects[i];
+            }
         }
         size--;
-
-       ////写法二  直接创建返回一个新的数组
-       // Object[] elements = new Object[size-1];
-       // int dex = 0;
-       // for (int i =0;i<size;i++){
-       //     if (index == i){
-       //         continue;
-       //     }else {
-       //         elements[dex++]=objects[i];
-       //     }
-       // }
-       // return elements;
+        objects =elements;
         return true;
     }
 
