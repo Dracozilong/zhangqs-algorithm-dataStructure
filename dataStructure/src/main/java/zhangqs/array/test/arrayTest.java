@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import zhangqs.array.array;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class arrayTest {
     private final Logger logger = LoggerFactory.getLogger(arrayTest.class);
