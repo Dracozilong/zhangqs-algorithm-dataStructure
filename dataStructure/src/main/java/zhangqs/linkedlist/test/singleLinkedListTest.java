@@ -15,6 +15,7 @@ public class singleLinkedListTest {
   public void test(){
     SingleLinkedList singleLinkedList = new SingleLinkedList();
     singleLinkedList.add(1);
+    singleLinkedList.prepend(2);
     System.out.println(singleLinkedList.toString());
     logger.info("singleLinkedList 为 =>{}", JSON.toJSONString(singleLinkedList));
   }
