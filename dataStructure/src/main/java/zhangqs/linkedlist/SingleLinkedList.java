@@ -1,5 +1,6 @@
 package zhangqs.linkedlist;
 
+
 // 实现一个单项链表
 public class SingleLinkedList {
 
@@ -73,16 +74,25 @@ public class SingleLinkedList {
         }
         Node node = new Node(value);
         node.next =curr.next;
-
-
+        size++;
     }
 
     @Override
     public String toString() {
-        return "SingleLinkedList{" +
-                "head=" + head +
-                ", size=" + size +
-                '}';
+        // 判断 head 节点是否为null 为null 返回一个空的字符串
+        if (head == null){
+            return "";
+        }
+        // 从头节点开始遍历这个链表
+        // 用一个变量 初始化赋值头节点
+        Node curr = head;
+        StringBuilder builder = new StringBuilder();
+        builder.append(head.data);
+        while (curr.next!=null){
+            curr =curr.next;
+            builder.append("->").append(curr.data);
+        }
+        return builder.toString();
     }
 
     private void rangeCheckForAdd(int index) {
