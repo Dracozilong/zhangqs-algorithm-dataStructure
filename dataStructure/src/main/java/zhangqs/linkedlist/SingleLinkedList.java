@@ -69,7 +69,7 @@ public class SingleLinkedList {
         }
         // 3.1 找到当前需要插入的节点数据的原节点的数据 ，所以需要遍历链表
         Node curr = head;
-        for (int i = 0; i < index; i++) {
+        for (int i = 0; i < index-1; i++) {
              curr =curr.next;
         }
         Node node = new Node(value);
