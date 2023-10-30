@@ -20,6 +20,7 @@ public class singleLinkedListTest {
     singleLinkedList.add(3);
     singleLinkedList.add(4);
     singleLinkedList.add(5);
+    singleLinkedList.add(2,6);
     System.out.println(singleLinkedList);
     logger.info("singleLinkedList 为 =>{}", JSON.toJSONString(singleLinkedList));
   }
