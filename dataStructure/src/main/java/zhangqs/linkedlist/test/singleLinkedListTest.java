@@ -16,11 +16,12 @@ public class singleLinkedListTest {
     SingleLinkedList singleLinkedList = new SingleLinkedList();
     singleLinkedList.add(1);
     singleLinkedList.add(2);
-//    singleLinkedList.add(2);
-//    singleLinkedList.add(3);
-//    singleLinkedList.add(4);
-//    singleLinkedList.add(5);
-    singleLinkedList.add(1,6);
+    singleLinkedList.add(3);
+    singleLinkedList.add(4);
+    singleLinkedList.add(5);
+    singleLinkedList.add(5,6);
+//    System.out.println(singleLinkedList.get(5));
+    System.out.println(singleLinkedList.get(6));
     System.out.println(singleLinkedList);
     logger.info("singleLinkedList 为 =>{}", JSON.toJSONString(singleLinkedList));
   }

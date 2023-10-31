@@ -49,9 +49,30 @@ public class SingleLinkedList {
         size++;
     }
 
+
+    /**
+     * 获取该链表的长度大小
+     */
     public int getSize(){
         return size;
     }
+
+    /**
+     * 获取指定位置的元素
+     * @param index
+     */
+    public Node get(int index){
+        // 判断该index 是否合法
+        if (index< 0  || index > size -1){
+            throw new IllegalArgumentException(" index out of range");
+        }
+        Node curr = head;
+        for (int i = 0; i < index; i++) {
+            curr = curr.next;
+        }
+        return curr;
+    }
+
 
     /**
      * 在指定位置插入元素
@@ -126,10 +147,7 @@ public class SingleLinkedList {
 
         @Override
         public String toString() {
-            return "Node{" +
-                    "data=" + data +
-                    ", next=" + next +
-                    '}';
+           return String.valueOf(data);
         }
     }
 }
