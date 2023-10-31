@@ -1,6 +1,8 @@
 package zhangqs.linkedlist;
 
 
+import java.util.LinkedList;
+
 // 实现一个单项链表
 public class SingleLinkedList {
 
@@ -59,23 +61,26 @@ public class SingleLinkedList {
     public void add(int index,int value){
         // 1. 校验需要插入的位置是否存在
         rangeCheckForAdd(index);
-        // 2. 如果当前插入的位置是在头节点处
-        if (index == 0){
-            prepend(value);
-        }
-        // 3. 判断头节点是否为 null
+        // 2. 判断头节点是否为 null
         if (head ==null){
             throw new IllegalArgumentException("Index out of range.");
         }
-        // 3.1 找到当前需要插入的节点数据的原节点的数据 ，所以需要遍历链表
-        Node curr = head;
-        for (int i = 0; i < index-1; i++) {
-             curr =curr.next;
+        // 3. 如果当前插入的位置是在头节点处
+        if (index == 0){
+            prepend(value);
+        }else {
+            // 3.1 找到当前需要插入的节点数据的原节点的数据 ，所以需要遍历链表
+            Node curr = head;
+            for (int i = 0; i < index-1; i++) {
+                curr =curr.next;
+            }
+            Node node = new Node(value);
+            node.next =curr.next;
+            curr.next =node;
+            size++;
         }
-        Node node = new Node(value);
-        node.next =curr.next;
-        curr.next =node;
-        size++;
+
+
     }
 
     @Override
