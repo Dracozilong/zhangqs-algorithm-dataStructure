@@ -94,11 +94,11 @@ public class SingleLinkedList {
         }else if (index == size-1){ //删除的是最后一个节点
             Node pre = head;
             Node curr = pre.next;
-            for (int i = 0; i < size; i++) {
+            for (int i = 1; i < size-1; i++) {
                 pre = curr;
                 curr =curr.next;
             }
-            pre.next =null;
+            pre.next = null;
             size--;
         }else { //删除的任意位置的节点
             Node pre = head;
