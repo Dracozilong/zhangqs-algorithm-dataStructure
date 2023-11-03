@@ -66,9 +66,7 @@ public class SingleLinkedList {
      */
     public Node get(int index){
         // 判断该index 是否合法
-        if (index< 0  || index > size -1){
-            throw new IllegalArgumentException(" index out of range");
-        }
+
         Node curr = head;
         for (int i = 0; i < index; i++) {
             curr = curr.next;
@@ -76,6 +74,43 @@ public class SingleLinkedList {
         return curr;
     }
 
+    /**
+     * 删除
+     * @param index
+     */
+    public void delete(int index){
+        // 判断该 index是否合法
+        if (index< 0  || index > size -1){
+            throw new IllegalArgumentException(" index out of range");
+        }
+        // 如果链表为空
+        if (head ==null){
+            return;
+        }
+        // 如果删除的是首节点
+        if (index ==0 ){
+           head =head.next;
+        }else if (index == size-1){ //删除的是最后一个节点
+            Node pre = head;
+            Node curr = pre.next;
+            for (int i = 0; i < size; i++) {
+                pre = curr;
+                curr =curr.next;
+            }
+            pre.next =null;
+            size--;
+        }else { //删除的任意位置的节点
+            Node pre = head;
+            Node curr = pre.next;
+            for (int i = 0; i <= index; i++) {
+                pre = curr;
+                curr =curr.next;
+            }
+            pre.next =curr.next;
+            curr.next =null;
+            size--;
+        }
+    }
 
     /**
      * 在指定位置插入元素
