@@ -90,6 +90,7 @@ public class SingleLinkedList {
         // 如果删除的是首节点
         if (index ==0 ){
            head =head.next;
+           size--;
         }else if (index == size-1){ //删除的是最后一个节点
             Node pre = head;
             Node curr = pre.next;
@@ -102,7 +103,7 @@ public class SingleLinkedList {
         }else { //删除的任意位置的节点
             Node pre = head;
             Node curr = pre.next;
-            for (int i = 0; i <= index; i++) {
+            for (int i = 1; i < index; i++) {
                 pre = curr;
                 curr =curr.next;
             }

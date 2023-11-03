@@ -20,8 +20,7 @@ public class singleLinkedListTest {
     singleLinkedList.add(4);
     singleLinkedList.add(5);
     singleLinkedList.add(5,6);
-//    System.out.println(singleLinkedList.get(5));
-    System.out.println(singleLinkedList.get(6));
+    singleLinkedList.delete(3);
     System.out.println(singleLinkedList);
     logger.info("singleLinkedList 为 =>{}", JSON.toJSONString(singleLinkedList));
   }
