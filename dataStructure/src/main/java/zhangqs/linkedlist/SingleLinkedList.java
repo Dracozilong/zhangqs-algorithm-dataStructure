@@ -72,7 +72,7 @@ public class SingleLinkedList {
     }
 
     /**
-     * 删除
+     * 根据位置 删除链表的节点
      * @param index
      */
     public void delete(int index){
@@ -84,25 +84,23 @@ public class SingleLinkedList {
         if (head ==null){
             return;
         }
-        // 如果删除的是首节点
-        if (index ==0 ){
+        // 删除的是首节点
+        if (index == 0 ){
            head =head.next;
-        }else if (index == size-1){ //删除的是最后一个节点
-            Node pre = head;
-            Node curr = pre.next;
-            for (int i = 0; i < size; i++) {
-                pre = curr;
-                curr =curr.next;
-            }
-            pre.next =null;
-            size--;
-        }else { //删除的任意位置的节点
-            Node pre = head;
-            Node curr = pre.next;
-            for (int i = 0; i <= index; i++) {
-                pre = curr;
-                curr =curr.next;
-            }
+        }
+        //
+        // 头节点赋值给变量cur
+        Node pre = head;
+        Node curr = head.next;
+        for (int i = 1; i <size-1; i++) {
+            pre = curr;
+            curr =curr.next;
+        }
+        //当前的 curr 已经是最后一个节点 curr.next 为null
+        if (curr == null){
+            pre.next = null;
+            size --;
+        }else {
             pre.next =curr.next;
             curr.next =null;
             size--;
