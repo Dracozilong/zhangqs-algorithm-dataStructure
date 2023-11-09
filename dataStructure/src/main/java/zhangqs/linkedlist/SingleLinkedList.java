@@ -88,23 +88,18 @@ public class SingleLinkedList {
         if (index == 0 ){
            head =head.next;
         }
-        //
         // 头节点赋值给变量cur
         Node pre = head;
         Node curr = head.next;
-        for (int i = 1; i <size-1; i++) {
+        for (int i = 1; i <index-1; i++) {
             pre = curr;
             curr =curr.next;
         }
         //当前的 curr 已经是最后一个节点 curr.next 为null
-        if (curr == null){
-            pre.next = null;
-            size --;
-        }else {
-            pre.next =curr.next;
-            curr.next =null;
-            size--;
-        }
+        pre.next =curr.next;
+        curr.next =null;
+        size--;
+
     }
 
     /**
