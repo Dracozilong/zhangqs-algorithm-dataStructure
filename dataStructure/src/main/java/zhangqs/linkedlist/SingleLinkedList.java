@@ -99,7 +99,27 @@ public class SingleLinkedList {
         pre.next =curr.next;
         curr.next =null;
         size--;
+    }
 
+    /**
+     *  按照 值 删除链表中的元素
+     * @param value
+     */
+    public void deleteByValue (int value){
+       // 需要判断头节点的是否为null 且头节点的值是否和传入的value 值相等
+        while (head!=null && head.data ==value){ // 存在 一种情况 1->1->1->1 这种值都是一样的重复链表
+           head =head.next;
+           size--;
+        }
+       // 记录链表的头节点
+       Node pre = head;
+       Node curr = head.next;
+       // 判断当前头节点 不为nul 且 curr 节点 不为null
+       while (pre!=null && curr!=null){
+           if (curr.data ==value){
+
+           }
+       }
     }
 
     /**
