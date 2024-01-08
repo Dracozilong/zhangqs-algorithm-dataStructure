@@ -65,7 +65,7 @@ public class SingleLinkedList {
     }
 
     /**
-     * 删除
+     * 根据位置 删除链表的节点
      * @param index
      */
     public void delete(int index){
@@ -77,30 +77,42 @@ public class SingleLinkedList {
         if (head ==null){
             return;
         }
-        // 如果删除的是首节点
-        if (index ==0 ){
+        // 删除的是首节点
+        if (index == 0 ){
+           head =head.next;
+        }
+        // 头节点赋值给变量cur
+        Node pre = head;
+        Node curr = head.next;
+        for (int i = 1; i <index-1; i++) {
+            pre = curr;
+            curr =curr.next;
+        }
+        //当前的 curr 已经是最后一个节点 curr.next 为null
+        pre.next =curr.next;
+        curr.next =null;
+        size--;
+    }
+
+    /**
+     *  按照 值 删除链表中的元素
+     * @param value
+     */
+    public void deleteByValue (int value){
+       // 需要判断头节点的是否为null 且头节点的值是否和传入的value 值相等
+        while (head!=null && head.data ==value){ // 存在 一种情况 1->1->1->1 这种值都是一样的重复链表
            head =head.next;
            size--;
-        }else if (index == size-1){ //删除的是最后一个节点
-            Node pre = head;
-            Node curr = pre.next;
-            for (int i = 1; i < size-1; i++) {
-                pre = curr;
-                curr =curr.next;
-            }
-            pre.next = null;
-            size--;
-        }else { //删除的任意位置的节点
-            Node pre = head;
-            Node curr = pre.next;
-            for (int i = 1; i < index; i++) {
-                pre = curr;
-                curr =curr.next;
-            }
-            pre.next =curr.next;
-            curr.next =null;
-            size--;
         }
+       // 记录链表的头节点
+       Node pre = head;
+       Node curr = head.next;
+       // 判断当前头节点 不为nul 且 curr 节点 不为null
+       while (pre!=null && curr!=null){
+           if (curr.data ==value){
+
+           }
+       }
     }
 
     /**
@@ -129,6 +141,7 @@ public class SingleLinkedList {
             curr.next =node;
             size++;
         }
+
 
     }
 
