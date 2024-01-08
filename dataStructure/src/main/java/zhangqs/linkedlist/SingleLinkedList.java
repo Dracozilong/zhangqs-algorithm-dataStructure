@@ -50,16 +50,6 @@ public class SingleLinkedList {
     }
 
 
-    /** 获取 该链表的大小
-     * 一句话描述该方法的作用
-     * @return int
-     * @author zhangqs
-     * @date 2023/10/31 21:46
-     */
-    public int getSize(){
-        return size;
-    }
-
     /**
      * 获取指定位置的元素
      * @param index
