@@ -1,18 +1,13 @@
 package zhangqs.linkedlist.test;
-import com.alibaba.fastjson.JSONArray;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import zhangqs.array.test.arrayTest;
+import zhangqs.array.test.ArrayTest;
 import zhangqs.linkedlist.SingleLinkedList;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
+public class SingleLinkedListTest {
 
-public class singleLinkedListTest {
-
-  private final Logger logger = LoggerFactory.getLogger(arrayTest.class);
+  private final Logger logger = LoggerFactory.getLogger(ArrayTest.class);
 
   @Test
   public void test(){

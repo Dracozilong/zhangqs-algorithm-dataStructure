@@ -1,12 +1,10 @@
 package zhangqs.array;
 
-import java.util.Arrays;
-
 /**
  *  实现一个 数组
  *  新增 删除 查找
  */
-public class array {
+public class Array {
 
     // 成员变量 不需要final 修饰 不需要在定义的时候初始化。
     // 通过构造函数 对 数组 以及 大小进行初始化。
@@ -22,11 +20,11 @@ public class array {
     //默认的空数组
     public static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
 
-    public array() {
+    public Array() {
         this.objects = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;
     }
 
-    public array(int size) {
+    public Array(int size) {
         // 初始化数组
         if (size > 0){
             this.objects = new Object[size];
