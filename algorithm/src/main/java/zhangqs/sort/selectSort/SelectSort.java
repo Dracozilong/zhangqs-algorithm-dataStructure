@@ -21,15 +21,24 @@ public class SelectSort {
      * @param arr
      */
     public static void  selectSort(int[] arr){
-        int[] randomArray = ArrayUtils.getRandomArray();
-        int[] array ={3,5,1,4,7,8,2};
-        log.info("未排序前的数组为 ->{}", JSON.toJSONString(randomArray));
-        for (int i = 0; i < randomArray.length; i++) {
+        log.info("未排序前的数组为 ->{}", JSON.toJSONString(arr));
+        for (int i = 0; i < arr.length; i++) {
             // 定义一个 变量记录当前位置的值
-            int targetNum = randomArray[i];
-            int minIndex;
+            int targetNum = arr[i];
             // 遍历当前数组 找到值最小的数的索引
+            for (int j = i; j < arr.length; j++) {
+                if (arr[j] < targetNum){
+                    arr[i] = arr[j];
+                    arr[j] = targetNum;
+                    targetNum = arr[i];
+                }
+            }
         }
-     log.info("选择排序后的数组为 ->{]",JSON.toJSONString(randomArray));
+     log.info("选择排序后的数组为 ->{}",JSON.toJSONString(arr));
+    }
+
+    public static void main(String[] args) {
+        int[] randomArray = ArrayUtils.getRandomArray();
+        SelectSort.selectSort(randomArray);
     }
 }
