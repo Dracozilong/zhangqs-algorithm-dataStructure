@@ -5,7 +5,7 @@ package zhangqs.utils;
  */
 public class ArrayUtils {
 
-    // 返回一个 int类型的长度为10的随机数组
+    // 返回一个 int 类型的长度为10的随机数组
     public static int[] getRandomArray() {
         int[] array = new int[10];
         for (int i = 0; i < array.length; i++) {
@@ -13,4 +13,6 @@ public class ArrayUtils {
         }
         return array;
     }
+
+
 }
