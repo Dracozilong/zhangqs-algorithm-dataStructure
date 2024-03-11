@@ -44,7 +44,7 @@ public class SelectSort {
     }
 
     /** 优化的点 : 没有必要单独的用一个变量记录 当前循环的最小值 只记录当前位置的索引即可  数组查找值通过下标就可以
-     *            交换值的方法可以写成公共的方法
+     *
      *  选择排序 泛型优化
      * @param arr
      * @param <E>
@@ -52,35 +52,26 @@ public class SelectSort {
     public static <E extends Comparable<E>> void selectSortPatten(E[] arr){
         log.info("范型 未排序前的数组为 ->{}", JSON.toJSONString(arr));
         for (int i = 0; i < arr.length; i++) {
-            int minxIndex = i;
+            E mixNum = arr[i];
             for (int j = i; j < arr.length; j++) {
-                if (arr[j].compareTo(arr[minxIndex]) < 0){
-                        minxIndex = j;
-                  // 交换值的方法
-                  swap(arr,i,minxIndex);
+                if (arr[j].compareTo(mixNum) < 0){
+                    mixNum = arr[j];
+                    arr[j] = arr[i];
+                    arr[i] = mixNum;
+                    mixNum = arr[i];
                 }
             }
         }
         log.info("范型 选择排序后的数组为 ->{}",JSON.toJSONString(arr));
     }
 
-    /**
-     * 交换 数组值的方法
-     * @param arr
-     * @param i
-     * @param j
-     * @param <E>
-     */
-    public static <E> void swap(E[]arr,int i,int j){
-            E temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
-    }
+
+
+
 
     public static void main(String[] args) {
         int[] randomArray = ArrayUtils.getRandomArray();
-        Integer[] array  ={88,3,54,5,76,24,8,59,71,65};
 //        SelectSort.selectSort(randomArray);
-        SelectSort.selectSortPatten(array);
+        SelectSort.selectSortPatten(Arrays.stream(randomArray).boxed().toArray(Integer[]::new));
     }
 }
