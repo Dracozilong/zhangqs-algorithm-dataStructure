@@ -43,7 +43,7 @@ public class SelectSort {
      log.info("选择排序后的数组为 ->{}",JSON.toJSONString(arr));
     }
 
-    /** 优化的点 : 没有必要单独的用一个变量记录 当前循环的最小值 只记录当前位置的索引即可  数组查找值通过下标就可以
+    /**
      *
      *  选择排序 泛型优化
      * @param arr
