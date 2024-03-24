@@ -10,4 +10,16 @@ public class InsertSort {
     // 2. 获取第i个元素,与之前arr[0,i)中的每个元素进行比较,当arr[i]比arr[0,i)中某个元素小时，交换。
     // 3. 重复步骤2，直到i等于数组长度
 
+    public static void insertSort(int[] arr ){
+        // 定一个 长度和 传入数组大小相等的数组
+        int[] resultArray =new int[arr.length];
+        // 默认 第一个元素已经被排序
+        resultArray[0] = arr[0];
+        // 传入的数组从第二个开始遍历
+        for (int i = 1; i < arr.length; i++) {
+
+        }
+
+    }
+
 }
