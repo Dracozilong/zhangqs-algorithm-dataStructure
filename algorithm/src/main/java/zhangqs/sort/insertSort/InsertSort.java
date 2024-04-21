@@ -1,4 +1,4 @@
-package zhangqs.sort.inserSort;
+package zhangqs.sort.insertSort;
 
 /**
  *  插入排序
