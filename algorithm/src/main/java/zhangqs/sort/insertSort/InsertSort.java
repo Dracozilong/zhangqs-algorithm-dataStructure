@@ -1,4 +1,4 @@
-package zhangqs.sort.inserSort;
+package zhangqs.sort.insertSort;
 
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
