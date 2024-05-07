@@ -1,8 +1,13 @@
 package zhangqs.sort.inserSort;
 
+import com.alibaba.fastjson.JSON;
+import lombok.extern.slf4j.Slf4j;
+import zhangqs.utils.ArrayUtils;
+
 /**
  *  插入排序
  */
+@Slf4j
 public class InsertSort {
 
     // 思路分析
@@ -10,22 +15,22 @@ public class InsertSort {
     // 2. 获取第i个元素,与之前arr[0,i)中的每个元素进行比较,当arr[i]比arr[0,i)中某个元素小时，交换。
     // 3. 重复步骤2，直到i等于数组长度
 
+    public static void main(String[] args) {
+        int[] randomArray = ArrayUtils.getRandomArray();
+        insertSort(randomArray);
+    }
+
     public static void insertSort(int[] arr ){
-        // 定一个 长度和 传入数组大小相等的数组
-        int[] resultArray =new int[arr.length];
-//        // 默认 第一个元素已经被排序
-//        resultArray[0] = arr[0];
-        // 传入的数组从第二个开始遍历
-        for (int i = 0; i < arr.length; i++) {
-            // 假设第一个元素已经被排序，获取第二个元素
-            int currentValue = arr[i];
-
-            for (int j = i+1; j > 0 ; j--) {
-                // 找寻当前resultArray[0,j)中比currentValue大的元素，交换位置
-                if(resultArray[j] > currentValue){
-
+        log.info("插入排序前的数据为=>{}", JSON.toJSONString(arr));
+        for (int i = 1; i < arr.length; i++) {
+            for (int j = i ; j > 0; j--) {
+                if (arr[j] < arr[j-1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j-1];
+                    arr[j-1] = temp;
                 }
             }
         }
+        log.info("插入排序后的数据为=>{}", JSON.toJSONString(arr));
     }
 }
