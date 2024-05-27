@@ -49,17 +49,16 @@ public class Array {
     public boolean add(int index ,Object o){
         //判断 index 数据是否正常
         rangeCheckForAdd(index);
-        Object[] elementData =new Object[size+1];
-        // 1.复制一个新的数组对像
-        for (int i =0;i<size;i++){
-          elementData[i] = objects[i];
+        //动态扩容
+        if (size == objects.length){ //当前数组的空间满了
+            resize( 2* objects.length);
         }
-        // 2.当前下标的值往后移一位
-        for (int i = elementData.length-1;i >index;i--){
-            elementData[i]=elementData[i-1];
+
+        // 当前下标的值往后移一位
+        for (int i = objects.length-1;i >index;i--){
+            objects[i+1]=objects[i];
         }
-        objects =elementData;
-        elementData[index]=o;
+        objects[index]=o;
         size++;
         return true;
     }
@@ -76,6 +75,7 @@ public class Array {
     public boolean delete (int index){
         //判断 index 数据是否正常
         rangeCheckForAdd(index);
+        // todo 动态缩容
         ////写法1  直接 在原数组上修改 返回true
         //for (int i = index+1;i < size;++i){
         //    objects[i-1] =objects[i];
@@ -101,6 +101,16 @@ public class Array {
     private void rangeCheckForAdd(int index) {
         if (index > size || index < 0)
             throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
+    }
+
+
+    // 动态扩容数组大小
+    private void resize(int capacity){
+        Object[] newObjects = new Object[capacity];
+        for (int i =0;i<size;i++){
+            newObjects[i] = objects[i];
+        }
+        objects = newObjects;
     }
 
     private String outOfBoundsMsg(int index) {
