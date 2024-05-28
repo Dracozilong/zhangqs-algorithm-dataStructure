@@ -55,7 +55,7 @@ public class Array {
         }
 
         // 当前下标的值往后移一位
-        for (int i = objects.length-1;i >index;i--){
+        for (int i = size-1; i >=index; i--){
             objects[i+1]=objects[i];
         }
         objects[index]=o;

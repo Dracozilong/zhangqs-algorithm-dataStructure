@@ -26,6 +26,7 @@ public class ArrayTest {
         Object o = array.get(2);
         // 新增 在指定的位置插入元素
         array.add(1, 5);
+        logger.info(JSON.toJSONString(o));
         logger.info(JSON.toJSONString(array));
         logger.info(JSON.toJSONString(array.size()));
         array.delete(1);
