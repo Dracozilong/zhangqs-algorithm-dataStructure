@@ -39,6 +39,11 @@ public class Array {
         return size;
     }
 
+    public int getCapacity(){
+        return objects.length;
+    }
+
+
     // add 新增 按照顺序新增
     public boolean add(Object o){
         //动态扩容
@@ -78,26 +83,28 @@ public class Array {
     // 根据下标删除元素
     public boolean delete (int index){
         //判断 index 数据是否正常
-        rangeCheckForAdd(index);
-        // todo 动态缩容
-        ////写法1  直接 在原数组上修改 返回true
-        //for (int i = index+1;i < size;++i){
-        //    objects[i-1] =objects[i];
-        //}
-        //size--;
-
-        ////写法二  直接创建返回一个新的数组
-        Object[] elements = new Object[size-1];
-        int dex = 0;
-        for (int i =0;i<size;i++){
-            if (index == i){
-                continue;
-            }else {
-                elements[dex++]=objects[i];
-            }
+        //写法1  直接 在原数组上修改 返回true
+        for (int i = index+1;i < size;++i){
+            objects[i-1] =objects[i];
         }
         size--;
-        objects =elements;
+        if (size == objects.length / 2 ){
+            resize(objects.length / 2);
+        }
+
+
+//        ////写法二  直接创建返回一个新的数组
+//        Object[] elements = new Object[size-1];
+//        int dex = 0;
+//        for (int i =0;i<size;i++){
+//            if (index == i){
+//                continue;
+//            }else {
+//                elements[dex++]=objects[i];
+//            }
+//        }
+//        size--;
+//        objects =elements;
         return true;
     }
 

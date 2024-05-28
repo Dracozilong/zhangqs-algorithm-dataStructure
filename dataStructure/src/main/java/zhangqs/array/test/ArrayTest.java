@@ -25,12 +25,13 @@ public class ArrayTest {
         // 获取对应index的 元素值
         Object o = array.get(2);
         // 新增 在指定的位置插入元素
-        array.add(5);
-        array.add(6);
         logger.info(JSON.toJSONString(o));
         logger.info(JSON.toJSONString(array));
         logger.info(JSON.toJSONString(array.size()));
+        array.delete(0);
         array.delete(1);
-        logger.info(JSON.toJSONString(array));
+        array.delete(2);
+        logger.info(JSON.toJSONString(array.getCapacity()));
+
     }
 }
