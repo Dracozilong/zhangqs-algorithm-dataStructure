@@ -41,6 +41,10 @@ public class Array {
 
     // add 新增 按照顺序新增
     public boolean add(Object o){
+        //动态扩容
+        if (size == objects.length){ //当前数组的空间满了
+            resize( 2* objects.length);
+        }
         objects[size++]= o;
         return true;
     }

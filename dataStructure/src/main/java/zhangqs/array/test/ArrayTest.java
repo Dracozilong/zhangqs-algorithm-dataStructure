@@ -25,7 +25,8 @@ public class ArrayTest {
         // 获取对应index的 元素值
         Object o = array.get(2);
         // 新增 在指定的位置插入元素
-        array.add(1, 5);
+        array.add(5);
+        array.add(6);
         logger.info(JSON.toJSONString(o));
         logger.info(JSON.toJSONString(array));
         logger.info(JSON.toJSONString(array.size()));
