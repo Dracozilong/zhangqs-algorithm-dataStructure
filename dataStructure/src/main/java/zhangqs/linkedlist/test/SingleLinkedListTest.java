@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import zhangqs.array.test.ArrayTest;
 import zhangqs.linkedlist.SingleLinkedList;
 
+import java.util.ArrayList;
+
 public class SingleLinkedListTest {
 
   private final Logger logger = LoggerFactory.getLogger(ArrayTest.class);
@@ -18,8 +20,6 @@ public class SingleLinkedListTest {
     singleLinkedList.add(4);
     singleLinkedList.add(5);
     singleLinkedList.add(5,6);
-//    System.out.println(singleLinkedList.get(5));
-//    System.out.println(singleLinkedList.get(6));
     singleLinkedList.delete(5);
     System.out.println(singleLinkedList);
   }
