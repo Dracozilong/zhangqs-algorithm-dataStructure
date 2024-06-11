@@ -57,7 +57,7 @@ public class Array {
     // add 新增 在对应的位置新增元素
     public boolean add(int index ,Object o){
         //判断 index 数据是否正常
-        rangeCheckForAdd(index);
+        rangeCheckForArray(index);
         //动态扩容
         if (size == objects.length){ //当前数组的空间满了
             resize( 2* objects.length);
@@ -81,8 +81,10 @@ public class Array {
     }
 
     // 根据下标删除元素
-    public boolean delete (int index){
+    public Object delete (int index){
         //判断 index 数据是否正常
+        rangeCheckForArray(index);;
+        Object object = objects[index];
         //写法1  直接 在原数组上修改 返回true
         for (int i = index+1;i < size;++i){
             objects[i-1] =objects[i];
@@ -105,17 +107,17 @@ public class Array {
 //        }
 //        size--;
 //        objects =elements;
-        return true;
+        return object;
     }
 
 
-    private void rangeCheckForAdd(int index) {
+    private void rangeCheckForArray(int index) {
         if (index > size || index < 0)
             throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
     }
 
 
-    // 动态扩容数组大小
+    // 动态扩容/缩容 数组大小
     private void resize(int capacity){
         Object[] newObjects = new Object[capacity];
         for (int i =0;i<size;i++){
@@ -124,6 +126,7 @@ public class Array {
         objects = newObjects;
     }
 
+    //数组边界校验
     private String outOfBoundsMsg(int index) {
         return "Index: "+index+", Size: "+size;
     }

@@ -1,8 +1,6 @@
 package zhangqs.stack;
-
 import zhangqs.array.Array;
 
-import java.util.EmptyStackException;
 
 /**
  * 栈 可以使用 数组/链表 形式去表示
@@ -34,24 +32,26 @@ public class Stack {
     }
 
     //入栈
-    public void push(int value) {
+    public boolean push(int value) {
         // 先判断一下 当前栈是否已漫
         if (isFull()){
             throw new StackOverflowError("stack is full");
         }
         // 使用数组的add功能 默认添加到最后一个
-        array.add(value);
         top++;
+        array.add(value);
+        return true;
     }
 
     //出栈
-    public void pop(){
+    public Object pop(){
        //判断当前栈是否为空
         if (isEmpty()){
             throw new IllegalStateException("stack is empty");
         }
-        array.delete(top);
+        Object o = array.delete(top);
         top--;
+        return o;
     }
 
     // 判断是否为空
@@ -61,10 +61,14 @@ public class Stack {
 
     //判断是否栈已满
     public boolean isFull(){
-        return top == array.size() - 1;
+        return top == getCapacity() -1 ;
     }
 
     public int size(){
         return top+1;
+    }
+
+    public int getCapacity(){
+        return array.getCapacity();
     }
 }

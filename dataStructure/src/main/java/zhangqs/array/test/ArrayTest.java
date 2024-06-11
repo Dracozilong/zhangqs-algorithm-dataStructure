@@ -30,11 +30,12 @@ public class ArrayTest {
         logger.info(JSON.toJSONString(o));
         logger.info(JSON.toJSONString(array));
         logger.info(JSON.toJSONString(array.size()));
-        array.delete(0);
+        Object o1 = array.delete(0);
         array.delete(1);
         array.delete(2);
         ArrayList<Object> objects = new ArrayList<>();
         logger.info(JSON.toJSONString(array.getCapacity()));
+        System.out.println(o1);
 
     }
 }
