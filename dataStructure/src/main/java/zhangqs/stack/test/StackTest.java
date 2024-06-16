@@ -23,5 +23,6 @@ public class StackTest {
         int size = stack.size();
         System.out.println(size);
         System.out.println(o);
-    }
+
+   }
 }
