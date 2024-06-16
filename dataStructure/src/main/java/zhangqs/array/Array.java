@@ -56,6 +56,18 @@ public class Array {
         return true;
     }
 
+    // 在数组的头部插入数据
+    public boolean addFirst(Object o){
+       return add(0,o);
+    }
+
+
+    // 在数组的尾部插入数据
+    public boolean addLast(Object o){
+       return add(size,o);
+    }
+
+
     // add 新增 在对应的位置新增元素
     public boolean add(int index ,Object o){
         //判断 index 数据是否正常
@@ -112,6 +124,16 @@ public class Array {
         return object;
     }
 
+    // 删除第一个元素
+    public Object removeFirst(){
+        return delete(0);
+    }
+
+
+    public Object removeLast(){
+        return delete(size-1);
+    }
+
 
     private void rangeCheckForArray(int index) {
         if (index > size || index < 0)
@@ -131,6 +153,21 @@ public class Array {
     //数组边界校验
     private String outOfBoundsMsg(int index) {
         return "Index: "+index+", Size: "+size;
+    }
+
+    @Override
+    public String toString(){
+
+        StringBuilder res = new StringBuilder();
+        res.append(String.format("Array: size = %d , capacity = %d\n", size, objects.length));
+        res.append('[');
+        for(int i = 0 ; i < size ; i ++){
+            res.append(objects[i]);
+            if(i != size - 1)
+                res.append(", ");
+        }
+        res.append(']');
+        return res.toString();
     }
 
 

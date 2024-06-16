@@ -6,8 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import zhangqs.array.Array;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 
 
 public class ArrayTest {
@@ -24,19 +22,12 @@ public class ArrayTest {
         array.add(3);
         array.add(4);
         array.add(5);
+        array.addFirst(-1);
+        array.addLast(6);
 
         // 获取对应index的 元素值
-        Object o = array.get(2);
-        // 新增 在指定的位置插入元素
-        logger.info(JSON.toJSONString(o));
-        logger.info(JSON.toJSONString(array));
-        logger.info(JSON.toJSONString(array.size()));
-        Object o1 = array.delete(0);
-        array.delete(1);
-        array.delete(2);
-        ArrayList<Object> objects = new ArrayList<>();
-
-        System.out.println(o1);
+        logger.info("第一个元素为=>{}", JSON.toJSONString(array.get(0)));
+        System.out.println(array);
 
     }
 }
