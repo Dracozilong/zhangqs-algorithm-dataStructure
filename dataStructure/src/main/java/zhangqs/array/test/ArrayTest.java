@@ -24,6 +24,7 @@ public class ArrayTest {
         array.add(3);
         array.add(4);
         array.add(5);
+
         // 获取对应index的 元素值
         Object o = array.get(2);
         // 新增 在指定的位置插入元素
@@ -34,7 +35,7 @@ public class ArrayTest {
         array.delete(1);
         array.delete(2);
         ArrayList<Object> objects = new ArrayList<>();
-        logger.info(JSON.toJSONString(array.getCapacity()));
+
         System.out.println(o1);
 
     }

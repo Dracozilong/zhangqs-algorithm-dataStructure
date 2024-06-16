@@ -3,6 +3,7 @@ package zhangqs.stack.test;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import zhangqs.array.Array;
 import zhangqs.array.test.ArrayTest;
 import zhangqs.stack.Stack;
 
@@ -23,6 +24,5 @@ public class StackTest {
         int size = stack.size();
         System.out.println(size);
         System.out.println(o);
-
-   }
+    }
 }

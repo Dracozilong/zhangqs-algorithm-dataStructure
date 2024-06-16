@@ -1,7 +1,6 @@
 package zhangqs.stack;
 import zhangqs.array.Array;
 
-
 /**
  * 栈 可以使用 数组/链表 形式去表示
  * @author zhangqs
@@ -17,6 +16,9 @@ public class Stack {
 
     // 标志位 记录当前的栈顶的位置
     private int top;
+
+    // 当前 栈的大小
+    private int size;
 
     // 使用 数组指定容量 进行初始化
     public Stack(int capacity) {
@@ -61,14 +63,14 @@ public class Stack {
 
     //判断是否栈已满
     public boolean isFull(){
-        return top == getCapacity() -1 ;
+        return top +1 == array.getCapacity() ;
     }
 
     public int size(){
         return top+1;
     }
 
-    public int getCapacity(){
-        return array.getCapacity();
-    }
+
+
+
 }

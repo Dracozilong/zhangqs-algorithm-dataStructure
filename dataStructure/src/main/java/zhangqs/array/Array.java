@@ -12,10 +12,10 @@ public class Array {
     // 如果一个变量既不在初始化的时候定义，也不在变量创建的时候初始化，那么该变量的创建毫无意义。
 
     // 定一个空数组
-    public Object[] objects;
+    private Object[] objects;
 
     // 数组个数
-    public int size;
+    private int size;
 
     //默认的空数组
     public static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
@@ -24,21 +24,23 @@ public class Array {
         this.objects = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;
     }
 
-    public Array(int size) {
+    public Array(int initialCapacity) {
         // 初始化数组
-        if (size > 0){
-            this.objects = new Object[size];
-        } else if (size == 0) {
+        if (initialCapacity > 0){
+            this.objects = new Object[initialCapacity];
+        } else if (initialCapacity == 0) {
            this.objects = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;
         } else {
             throw new IllegalArgumentException("Illegal size: "+ size);
         }
     }
 
+    // 当前数组的成员个数
     public int size(){
         return size;
     }
 
+    // 获取当前集合的容量
     public int getCapacity(){
         return objects.length;
     }
