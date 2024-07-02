@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import zhangqs.array.Array;
 import zhangqs.array.test.ArrayTest;
+import zhangqs.queue.Queue;
 import zhangqs.stack.Stack;
 
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class StackTest {
         stack.push(5);
         Object o = stack.pop();
         int size = stack.size();
-        System.out.println(size);
+        System.out.println(stack);
         System.out.println(o);
     }
 }
