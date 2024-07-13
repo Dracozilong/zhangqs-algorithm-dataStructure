@@ -1,5 +1,6 @@
 package zhangqs.queue.test;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -7,8 +8,6 @@ import zhangqs.queue.Queue;
 
 
 public class QueueTest {
-
-    private final Logger logger = LoggerFactory.getLogger(QueueTest.class);
 
     public static void main(String[] args) {
         Queue queue = new Queue(10);
