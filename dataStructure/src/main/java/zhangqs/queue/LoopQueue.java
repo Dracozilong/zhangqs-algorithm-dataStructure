@@ -1,8 +1,6 @@
 package zhangqs.queue;
 import lombok.Getter;
 
-import java.util.Arrays;
-
 /**
  * 循环队列
  * @author zhangqs
@@ -47,7 +45,7 @@ public class LoopQueue {
         return  front == tail;
     }
 
-    //循环队列判断是否已满的条件 尾+1 对数组长度取模 = 首
+    //循环队列判断是否已满的条件 尾+1 对数组长度取模
     public boolean isFull(){
         return (tail+1) % array.length == front;
     }

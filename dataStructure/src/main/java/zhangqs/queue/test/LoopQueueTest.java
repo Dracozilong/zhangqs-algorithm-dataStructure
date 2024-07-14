@@ -16,5 +16,6 @@ public class LoopQueueTest {
         loopQueue.dequeue();
         loopQueue.enqueue(10);
         loopQueue.enqueue(11);
+        loopQueue.enqueue(12);
     }
 }
