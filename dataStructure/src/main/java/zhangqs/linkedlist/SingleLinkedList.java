@@ -43,9 +43,12 @@ public class SingleLinkedList {
      */
     public void prepend(int value){
         Node newHead = new Node(value);
-        // 当前最新的Head的next 指向旧的next节点
-        newHead.next =head;
-        head = newHead;
+        if (head == null) {
+            head = newHead; // 链表为空，新节点成为头节点
+        } else {
+            newHead.next = head; // 新节点指向原头节点
+            head = newHead; // 更新头节点为新节点
+        }
         size++;
     }
 
