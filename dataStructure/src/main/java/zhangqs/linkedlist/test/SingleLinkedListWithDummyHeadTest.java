@@ -14,6 +14,10 @@ public class SingleLinkedListWithDummyHeadTest {
         SingleLinkedListWithDummyHead singleLinkedListWithDummyHead = new SingleLinkedListWithDummyHead();
         singleLinkedListWithDummyHead.prepend(0);
         singleLinkedListWithDummyHead.addLast(1);
+        singleLinkedListWithDummyHead.prepend(-1);
+        singleLinkedListWithDummyHead.add(1,3);
+//        singleLinkedListWithDummyHead.delete(1);
+        singleLinkedListWithDummyHead.deleteByValue(0);
         System.out.println(singleLinkedListWithDummyHead);
     }
 }

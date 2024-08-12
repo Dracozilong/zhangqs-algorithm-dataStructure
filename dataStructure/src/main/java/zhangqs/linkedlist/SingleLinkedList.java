@@ -68,6 +68,16 @@ public class SingleLinkedList {
     }
 
     /**
+     * 获取 单项链表的长度
+     * @return java.lang.Integer
+     * @author zhangqs
+     * @date 2024/08/05 07:14
+     */
+    public Integer getSize(){
+        return size;
+    }
+
+    /**
      * 根据位置 删除链表的节点
      * @param index
      */
@@ -113,8 +123,12 @@ public class SingleLinkedList {
        // 判断当前头节点 不为nul 且 curr 节点 不为null
        while (pre!=null && curr!=null){
            if (curr.data ==value){
-
+               pre.next = curr.next;  // 删除当前节点
+               size--;
+           }else {
+               pre = curr;
            }
+           curr = curr.next;  // 始终后移curr
        }
     }
 
@@ -141,7 +155,7 @@ public class SingleLinkedList {
             }
             Node node = new Node(value);
             node.next =curr.next;
-            curr.next =node;
+            curr.next = node;
             size++;
         }
 
