@@ -43,9 +43,12 @@ public class SingleLinkedList {
      */
     public void prepend(int value){
         Node newHead = new Node(value);
-        // 当前最新的Head的next 指向旧的next节点
-        newHead.next =head;
-        head = newHead;
+        if (head == null) {
+            head = newHead; // 链表为空，新节点成为头节点
+        } else {
+            newHead.next = head; // 新节点指向原头节点
+            head = newHead; // 更新头节点为新节点
+        }
         size++;
     }
 
@@ -62,6 +65,16 @@ public class SingleLinkedList {
             curr = curr.next;
         }
         return curr;
+    }
+
+    /**
+     * 获取 单项链表的长度
+     * @return java.lang.Integer
+     * @author zhangqs
+     * @date 2024/08/05 07:14
+     */
+    public Integer getSize(){
+        return size;
     }
 
     /**
@@ -110,8 +123,12 @@ public class SingleLinkedList {
        // 判断当前头节点 不为nul 且 curr 节点 不为null
        while (pre!=null && curr!=null){
            if (curr.data ==value){
-
+               pre.next = curr.next;  // 删除当前节点
+               size--;
+           }else {
+               pre = curr;
            }
+           curr = curr.next;  // 始终后移curr
        }
     }
 
@@ -138,7 +155,7 @@ public class SingleLinkedList {
             }
             Node node = new Node(value);
             node.next =curr.next;
-            curr.next =node;
+            curr.next = node;
             size++;
         }
 

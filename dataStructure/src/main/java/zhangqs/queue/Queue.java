@@ -25,7 +25,7 @@ public class Queue {
         return array.size();
     }
 
-    // 当前队列的容量
+    // 当前队列的容量，默认应该不提供获取 capacity的方法
     public int getCapacity(){
         return array.getCapacity();
     }
