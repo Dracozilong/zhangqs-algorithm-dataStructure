@@ -24,6 +24,7 @@ public class ArrayTest {
         array.add(5);
         array.addFirst(-1);
         array.addLast(6);
+        array.add(3,99);
 
         // 获取对应index的 元素值
         logger.info("第一个元素为=>{}", JSON.toJSONString(array.get(0)));
