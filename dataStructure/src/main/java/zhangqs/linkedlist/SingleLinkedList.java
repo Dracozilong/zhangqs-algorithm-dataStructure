@@ -3,7 +3,7 @@ package zhangqs.linkedlist;
 
 import java.util.LinkedList;
 
-// 实现一个单项链表
+// 实现一个单项链表 不使用虚拟头节点
 public class SingleLinkedList {
 
     //定一个头节点
