@@ -9,7 +9,7 @@ public class RingLinkedList {
 
     // 虚拟头节点
     public RingLinkedList() {
-        this.head = new Node(null);
+        this.head = null;
     }
 
     // 循环链表 头尾区别不大  不用区分 头插 还是尾插
@@ -23,22 +23,24 @@ public class RingLinkedList {
         Node newNode = new Node(data);
 
         // 当前 没有节点
-        if (head.next ==null){
+        if (head == null){
             // 当前创建的节点 作为第一个节点
-            head.next = newNode;
+            head = newNode;
             // 指向 自己
-            newNode.next = newNode;
+            newNode.next = head;
         }else {
-            // 找到尾节点sss
-            Node curr = head.next;
-            while (curr.next != head.next) {
+            // 找到尾节点
+            Node curr = head;
+            while (curr.next != head) {
                 curr = curr.next;
             }
             // 赋值 尾节点的 next
             curr.next = newNode;
-            newNode.next = head.next;
+            newNode.next = head;
         }
     }
+
+
 
 
 
