@@ -34,6 +34,30 @@ public class RingLinkedListWithDummyHead {
         newNode.next = head;
     }
 
+    @Override
+    public String toString() {
+        if (head == null) {
+            return "";
+        }
+
+        StringBuilder builder = new StringBuilder();
+        Node curr = head;
+
+        // 添加环形标识
+        builder.append("(环形: ");
+        builder.append(curr.data);
+
+        curr = curr.next;
+        while (curr != head) {
+            builder.append("->").append(curr.data);
+            curr = curr.next;
+        }
+
+        // 显示回到起点的连接
+        builder.append("->").append(head.data).append(")");
+        return builder.toString();
+    }
+
 
     // 定义一个Node节点
     private class Node {
