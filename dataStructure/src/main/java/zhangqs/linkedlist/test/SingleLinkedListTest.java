@@ -25,4 +25,5 @@ public class SingleLinkedListTest {
     singleLinkedList.deleteByValue(1);
     System.out.println(singleLinkedList);
   }
+
 }

@@ -1,11 +1,16 @@
 package zhangqs.linkedlist;
 
+import lombok.Getter;
+
 /**
  * 环形链表
  */
 public class RingLinkedList {
 
     private Node head;
+
+    @Getter
+    private int size = 0;
 
     // 虚拟头节点
     public RingLinkedList() {
@@ -14,6 +19,8 @@ public class RingLinkedList {
 
     // 循环链表 头尾区别不大  不用区分 头插 还是尾插
     // 先找到尾节点 → 让尾节点的 next 指向新节点 → 再让新节点 next 指向原 head → 最后更新 head 指向新节点
+    // 复杂度分析: 循环链表 新增值 无论是指定位置新增 还是在首尾新增 都需要找到需要插入节点的前一个节点,遍历链表的时间复杂度 O(n)
+    //           单纯的插入操作 时间复杂度是O(1)
 
     public void add(Integer data) {
         if (data == null) {
@@ -38,8 +45,9 @@ public class RingLinkedList {
             curr.next = newNode;
             newNode.next = head;
         }
-    }
 
+        size++;
+    }
 
 
     @Override

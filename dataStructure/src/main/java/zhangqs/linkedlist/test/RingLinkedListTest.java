@@ -17,5 +17,9 @@ public class RingLinkedListTest {
 
         System.out.println(ringLinkedList);
 
+        Integer size = ringLinkedList.getSize();
+
+        System.out.println(size);
+
     }
 }

@@ -1,12 +1,16 @@
 package zhangqs.linkedlist;
 
+import lombok.Getter;
+
 /**
  * 环形链表 使用虚拟头节点
  */
 public class RingLinkedListWithDummyHead {
 
-
     private Node head;
+
+    @Getter
+    private int size = 0;
 
     // 虚拟头节点
     public RingLinkedListWithDummyHead() {
@@ -32,6 +36,8 @@ public class RingLinkedListWithDummyHead {
         // 在尾部插入新节点
         tail.next = newNode;
         newNode.next = head;
+
+        size++;
     }
 
     @Override
