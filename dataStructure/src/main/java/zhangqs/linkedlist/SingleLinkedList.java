@@ -57,14 +57,18 @@ public class SingleLinkedList {
      * 获取指定位置的元素
      * @param index
      */
-    public Node get(int index){
-        // 判断该index 是否合法
+    public Integer get(int index){
+        // 判断 index 是否合法
+        if (index < 0 || index >= size) {
+            return null;
+        }
 
+        // 链表获取某个位置的数据 ，只能从头节点/尾节点开始去遍历
         Node curr = head;
         for (int i = 0; i < index; i++) {
             curr = curr.next;
         }
-        return curr;
+        return curr.data;
     }
 
     /**

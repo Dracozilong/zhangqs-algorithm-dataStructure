@@ -49,6 +49,21 @@ public class RingLinkedList {
         size++;
     }
 
+    // 获取指定位置的元素
+    // 链表本身 get的 意义不是很大， 需要get 的原因是为了方便测试 或者是教学
+    public Integer get(Integer index){
+        // 判断 index 是否合法
+        if (index < 0 || index >= size) {
+            return null;
+        }
+        // index 就是人为的给你的链表加上下标
+        Node curr = head;
+        for (int i = 0; i < index; i++) {
+            curr = curr.next;
+        }
+        return curr.data;
+    }
+
 
     @Override
     public String toString() {
