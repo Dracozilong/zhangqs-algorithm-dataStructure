@@ -15,11 +15,19 @@ public class RingLinkedListTest {
         ringLinkedList.add(2);
         ringLinkedList.add(3);
 
-        System.out.println(ringLinkedList);
-
         Integer size = ringLinkedList.getSize();
 
         System.out.println(size);
 
+        System.out.println(ringLinkedList);
+
+        ringLinkedList.delete(0);
+
+        System.out.println(ringLinkedList);
+
+        System.out.println(ringLinkedList.getSize());
+
     }
+
+
 }

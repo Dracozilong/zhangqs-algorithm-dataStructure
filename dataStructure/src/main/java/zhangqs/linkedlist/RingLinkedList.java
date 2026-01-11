@@ -64,6 +64,44 @@ public class RingLinkedList {
         return curr.data;
     }
 
+    public void delete(int index) {
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("index out of range");
+        }
+
+        if (head == null) {
+            return;
+        }
+
+        // 删除头节点
+        if (index == 0) {
+            if (size == 1) {
+                head = null;
+            } else {
+                Node tail = head;
+                while (tail.next != head) {
+                    tail = tail.next;
+                }
+                tail.next = head.next;
+                head = head.next;
+            }
+            size--;
+            return;
+        }
+
+        // 删除非头节点
+        Node pre = head;
+        Node curr = head.next;
+
+        for (int i = 1; i < index; i++) {
+            pre = curr;
+            curr = curr.next;
+        }
+
+        pre.next = curr.next;
+        size--;
+    }
+
 
     @Override
     public String toString() {
