@@ -1,7 +1,6 @@
 package zhangqs.linkedlist.test;
 
 import zhangqs.linkedlist.RingLinkedList;
-import zhangqs.linkedlist.SingleLinkedList;
 
 /**
  * 环形链表 测试
@@ -14,6 +13,7 @@ public class RingLinkedListTest {
         ringLinkedList.add(1);
         ringLinkedList.add(2);
         ringLinkedList.add(3);
+        ringLinkedList.add(4);
 
         Integer size = ringLinkedList.getSize();
 

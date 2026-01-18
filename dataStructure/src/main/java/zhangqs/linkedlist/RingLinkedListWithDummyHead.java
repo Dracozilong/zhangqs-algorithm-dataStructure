@@ -100,6 +100,7 @@ public class RingLinkedListWithDummyHead {
         builder.append(curr.data);
 
         curr = curr.next;
+        // curr.next!=head  是判断当前节点是否是尾节点， curr !=head 是判断当前节点是否是虚拟头节点,用来遍历当前链表
         while (curr != head) {
             builder.append("->").append(curr.data);
             curr = curr.next;

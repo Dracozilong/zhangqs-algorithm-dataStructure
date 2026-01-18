@@ -64,6 +64,10 @@ public class RingLinkedList {
         return curr.data;
     }
 
+    /**
+     * 按照 位置删除节点
+     * @param index
+     */
     public void delete(int index) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("index out of range");
