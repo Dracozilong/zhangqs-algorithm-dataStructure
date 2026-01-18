@@ -7,6 +7,9 @@ package zhangqs.linkedlist;
  */
 public class SingleLinkedListWithDummyHead {
 
+    // 单向链表不支持反向遍历,没有前置节点！！！！
+    // 指定位置插入的时，遍历要从dummyHead 开始 !!!!
+
     //定一个头节点
     private Node dummyHead;
 
@@ -78,7 +81,7 @@ public class SingleLinkedListWithDummyHead {
         if (index< 0  || index > size -1){
             throw new IllegalArgumentException(" index out of range");
         }
-        Node tmp = dummyHead;
+        Node tmp = dummyHead.next;
         for(int i = 0; i < index; i++){
           // 找到要删除节点的上一个节点
           tmp = tmp.next;

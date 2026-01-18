@@ -6,6 +6,8 @@ import java.util.LinkedList;
 // 实现一个单项链表 不使用虚拟头节点
 public class SingleLinkedList {
 
+    // 单向链表不支持反向遍历,没有前置节点！！！！
+
     //定一个头节点
     private Node head;
 

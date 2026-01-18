@@ -11,10 +11,7 @@ public class RingLinkedListWithDummyHeadTest {
         ringLinkedListWithDummyHead.add(3);
         ringLinkedListWithDummyHead.add(4);
 
-        Integer data = ringLinkedListWithDummyHead.get(1);
-        System.out.println(ringLinkedListWithDummyHead);
-        System.out.println(ringLinkedListWithDummyHead.getSize());
-        ringLinkedListWithDummyHead.delete(3);
+        ringLinkedListWithDummyHead.delete(0);
         System.out.println(ringLinkedListWithDummyHead);
         System.out.println(ringLinkedListWithDummyHead.getSize());
     }

@@ -12,12 +12,12 @@ public class SingleLinkedListWithDummyHeadTest {
     @Test
     public void test(){
         SingleLinkedListWithDummyHead singleLinkedListWithDummyHead = new SingleLinkedListWithDummyHead();
-        singleLinkedListWithDummyHead.prepend(0);
         singleLinkedListWithDummyHead.addLast(1);
-        singleLinkedListWithDummyHead.prepend(-1);
-        singleLinkedListWithDummyHead.add(1,3);
-//        singleLinkedListWithDummyHead.delete(1);
-        singleLinkedListWithDummyHead.deleteByValue(0);
+        singleLinkedListWithDummyHead.addLast(2);
+        singleLinkedListWithDummyHead.addLast(3);
+        singleLinkedListWithDummyHead.addLast(4);
+
+        singleLinkedListWithDummyHead.add(4,5);
         System.out.println(singleLinkedListWithDummyHead);
     }
 }
