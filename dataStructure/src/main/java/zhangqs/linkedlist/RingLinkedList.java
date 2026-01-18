@@ -69,11 +69,12 @@ public class RingLinkedList {
             throw new IllegalArgumentException("index out of range");
         }
 
+        // 判断是否为空
         if (head == null) {
             return;
         }
 
-        // 删除头节点
+        // 删除头节点 头节点本身既是数据 又是头节点
         if (index == 0) {
             if (size == 1) {
                 head = null;
