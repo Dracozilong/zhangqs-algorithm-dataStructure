@@ -49,7 +49,7 @@ public class SingleLinkedListWithDummyHead {
     }
 
     /**
-     * 在指定位置添加元素
+     * 在指定位置添加元素 循环结束 tmp 指向的是前驱的节点
      * @param index
      * @param value
      * @author zhangqs
