@@ -13,16 +13,11 @@ public class SingleLinkedListTest {
   @Test
   public void test(){
     SingleLinkedList singleLinkedList = new SingleLinkedList();
-    singleLinkedList.prepend(-1);
     singleLinkedList.add(1);
-    singleLinkedList.prepend(-2);
-    singleLinkedList.add(1,3);
-//    singleLinkedList.add(2);
-//    singleLinkedList.add(3);
-//    singleLinkedList.add(4);
-//    singleLinkedList.add(5);
-//    singleLinkedList.add(5,6);
-    singleLinkedList.deleteByValue(1);
+    singleLinkedList.add(2);
+    singleLinkedList.add(3);
+    singleLinkedList.add(4);
+    singleLinkedList.add(1,5);
     System.out.println(singleLinkedList);
   }
 

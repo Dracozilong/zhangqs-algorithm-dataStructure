@@ -40,6 +40,34 @@ public class SingleLinkedList {
     }
 
     /**
+     * 在指定位置插入元素
+     * @param index
+     * @param value
+     */
+    public void add(int index,int value){
+        // 1. 校验需要插入的位置是否存在
+        rangeCheckForAdd(index);
+        // 2. 判断头节点是否为 null
+        if (head ==null){
+            throw new IllegalArgumentException("Index out of range.");
+        }
+        // 3. 如果当前插入的位置是在头节点处
+        if (index == 0){
+            prepend(value);
+        }else {
+            // 3.1 找到当前需要插入的节点数据的原节点的数据 ，所以需要遍历链表
+            Node curr = head;
+            for (int i = 0; i < index-1; i++) {
+                curr =curr.next;
+            }
+            Node node = new Node(value);
+            node.next =curr.next;
+            curr.next = node;
+            size++;
+        }
+    }
+
+    /**
      *  头插法 ，更新头节点
      * @param value
      */
@@ -138,35 +166,7 @@ public class SingleLinkedList {
        }
     }
 
-    /**
-     * 在指定位置插入元素
-     * @param index
-     * @param value
-     */
-    public void add(int index,int value){
-        // 1. 校验需要插入的位置是否存在
-        rangeCheckForAdd(index);
-        // 2. 判断头节点是否为 null
-        if (head ==null){
-            throw new IllegalArgumentException("Index out of range.");
-        }
-        // 3. 如果当前插入的位置是在头节点处
-        if (index == 0){
-            prepend(value);
-        }else {
-            // 3.1 找到当前需要插入的节点数据的原节点的数据 ，所以需要遍历链表
-            Node curr = head;
-            for (int i = 0; i < index-1; i++) {
-                curr =curr.next;
-            }
-            Node node = new Node(value);
-            node.next =curr.next;
-            curr.next = node;
-            size++;
-        }
 
-
-    }
 
     @Override
     public String toString() {

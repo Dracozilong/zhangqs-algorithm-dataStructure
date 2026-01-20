@@ -49,7 +49,7 @@ public class SingleLinkedListWithDummyHead {
     }
 
     /**
-     * 在指定位置添加元素 循环结束 tmp 指向的是前驱的节点
+     * 在指定位置添加元素 循环结束 找到当前应该插入的节点的前一个节点 temp就指向那个节点，无论是否使用了虚拟头节点还是不使用虚拟头节点
      * @param index
      * @param value
      * @author zhangqs

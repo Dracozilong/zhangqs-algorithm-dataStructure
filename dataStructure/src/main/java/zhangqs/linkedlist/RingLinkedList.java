@@ -1,5 +1,6 @@
 package zhangqs.linkedlist;
 
+import cn.hutool.core.util.ObjectUtil;
 import lombok.Getter;
 
 /**
@@ -22,10 +23,11 @@ public class RingLinkedList {
     // 复杂度分析: 循环链表 新增值 无论是指定位置新增 还是在首尾新增 都需要找到需要插入节点的前一个节点,遍历链表的时间复杂度 O(n)
     //           单纯的插入操作 时间复杂度是O(1)
 
-    public void add(Integer data) {
-        if (data == null) {
+    public void add(int data) {
+        if (ObjectUtil.isNull(data)) {
             return;
         }
+
         // 创建一个新节点
         Node newNode = new Node(data);
 
@@ -47,6 +49,46 @@ public class RingLinkedList {
         }
 
         size++;
+    }
+
+    /**
+     * 在指定位置插入元素
+     * @param index
+     * @param value
+     */
+    public void add(int index,int value ){
+        // 1. 校验需要插入的位置是否存在
+        rangeCheckForAdd(index);
+        // 2. 判断头节点是否为 null
+        Node node = new Node(value);
+        if (head ==null){
+            // 当前创建的节点 作为第一个节点
+            head = node;
+            // 指向 自己
+            node.next = head;
+            return;
+        }
+
+        if (index == 0){
+            // 找到尾节点
+            Node curr = head;
+            while (curr.next!= head){
+                curr = curr.next;
+            }
+            // 重新赋值头节点
+            node.next = curr.next;
+            curr.next = node;
+            head = node;
+            size++;
+        } else {
+            Node curr = head;
+            for (int i = 0; i < index-1; i++) {
+                curr =curr.next;
+            }
+            node.next = curr.next;
+            curr.next = node;
+            size++;
+        }
     }
 
     // 获取指定位置的元素
@@ -130,6 +172,15 @@ public class RingLinkedList {
         // 显示回到起点的连接
         builder.append("->").append(head.data).append(")");
         return builder.toString();
+    }
+
+    private void rangeCheckForAdd(int index) {
+        if (index > size || index < 0)
+            throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
+    }
+
+    private String outOfBoundsMsg(int index) {
+        return "Index: "+index+", Size: "+size;
     }
 
     // 定义一个Node节点

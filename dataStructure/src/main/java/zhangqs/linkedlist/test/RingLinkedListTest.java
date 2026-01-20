@@ -21,11 +21,9 @@ public class RingLinkedListTest {
 
         System.out.println(ringLinkedList);
 
-        ringLinkedList.delete(0);
+        ringLinkedList.add(3,-4);
 
         System.out.println(ringLinkedList);
-
-        System.out.println(ringLinkedList.getSize());
 
     }
 
