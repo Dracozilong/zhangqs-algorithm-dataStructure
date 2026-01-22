@@ -8,7 +8,7 @@ package zhangqs.linkedlist;
 public class SingleLinkedListWithDummyHead {
 
     // 单向链表不支持反向遍历,没有前置节点！！！！
-    // 指定位置插入的时，遍历要从dummyHead 开始 !!!!
+    // 指定位置插入的时，遍历要从dummyHead 开始 !!!!!
 
     //定一个头节点
     private Node dummyHead;
